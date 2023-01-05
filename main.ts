@@ -1,6 +1,6 @@
 var readlineSync = require('readline-sync');
-import { ItemManager } from "./ItemManager";
-let itemmanager = new ItemManager([])
+import {SupplyManager } from "./SupplyManager";
+let supplyManager = new SupplyManager([])
 while (true) {
     console.log(`1. Display item
 2. Find item
@@ -10,19 +10,19 @@ while (true) {
     let choice = +readlineSync.question("Enter your choice: ")
     switch(choice) {
         case 1:
-            itemmanager.displayItem()
+            supplyManager.displayItem()
             break
         case 2:
-            itemmanager.findItem()
+            supplyManager.findByName()
             break
         case 3:
-            itemmanager.addItem()
+            supplyManager.addItem()
             break
         case 4:
-            itemmanager.editItem()
+            supplyManager.editItem()
             break
         case 5:
-            itemmanager.deleteItem()
+            supplyManager.deleteItem()
             break
     }
 }

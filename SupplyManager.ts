@@ -11,53 +11,53 @@ export class SupplyManager {
     }
     findbyName() {
         while (true) {
-            let name = readlineSync.question("name: ")
-            let check = new RegExp(name, "g")
+            let name = readlineSync.question("name: ");
+            let check = new RegExp(name, "g");
             for (let i = 0; i < this.supplyList.length; i++) {
                 if (check.test(this.supplyList[i].name) == true) {
                     return i
                 }
             }
-            console.log("Name is not available, please try again")
+            console.log("Name is not available, please try again");
         }
     }
-    findItem() {
-        let index = this.findbyName()
-        console.table(this.supplyList[index])
+    findByName() {
+        let index = this.findbyName();
+        console.table(this.supplyList[index]);
     }
     addItem(): void {
         let numbertest = /^\d*$/g
         let id;
         while (true) {
-            id = readlineSync.question("Id: ")
+            id = readlineSync.question("Id: ");
             if (numbertest.test(id)) {
-                break
+                break;
             }
-            console.log("ID must be a number")
+            console.log("ID must be a number");
         }
-        let name = readlineSync.question("Name: ")
-        let type = readlineSync.question("Sector : ")
+        let name = readlineSync.question("Name: ");
+        let type = readlineSync.question("Sector : ");
         let price;
         while (true) {
-            price = readlineSync.question("Price: ")
+            price = readlineSync.question("Price: ");
             if (numbertest.test(price)) {
                 break
             }
-            console.log("Wrong type of Price. Please try again")
+            console.log("Wrong type of Price. Please try again");
         }
         let quantity;
         while (true) {
             let quantity = readlineSync.question("Quantity: ")
-            console.log(numbertest.test(quantity))
+            console.log(numbertest.test(quantity));
             if (numbertest.test(quantity)) {
                 break;
             }
-            console.log("Quantity must be a number. Please try again")
+            console.log("Quantity must be a number. Please try again");
         }
-        let description: string = readlineSync.question("Description: ")
-        let addDay: string = new Date().toString()
-        let item = new Supply(id, name, type, price, quantity, addDay, description)
-        this.supplyList.push(item)
+        let description: string = readlineSync.question("Description: ");
+        let addDay: string = new Date().toString();
+        let item = new Supply(id, name, type, price, quantity, addDay, description);
+        this.supplyList.push(item);
     }
     findbyID(): number {   
         while (true) {
@@ -71,7 +71,7 @@ export class SupplyManager {
         }
     }
     editItem(): void {
-        let index: number = this.findbyID()
+        let index = this.findbyID()
         this.supplyList[index].name = readlineSync.question("Name: ")
         this.supplyList[index].sector = readlineSync.question("Sector: ")
         this.supplyList[index].price = readlineSync.question("Price: ")
