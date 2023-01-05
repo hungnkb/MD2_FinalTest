@@ -26,11 +26,11 @@ export class SupplyManager {
         console.table(this.supplyList[index]);
     }
     addItem(): void {
-        let numbertest = /^\d*$/g
+        let checkNumber = /^\d*$/g
         let id;
         while (true) {
             id = readlineSync.question("Id: ");
-            if (numbertest.test(id)) {
+            if (checkNumber.test(id)) {
                 break;
             }
             console.log("Wrong type of ID. Please try again");
@@ -40,7 +40,7 @@ export class SupplyManager {
         let price;
         while (true) {
             price = readlineSync.question("Price: ");
-            if (numbertest.test(price)) {
+            if (checkNumber.test(price)) {
                 break
             }
             console.log("Wrong type of price. Please try again");
@@ -48,8 +48,8 @@ export class SupplyManager {
         let quantity;
         while (true) {
             let quantity = readlineSync.question("Quantity: ");
-            console.log(numbertest.test(quantity));
-            if (numbertest.test(quantity)) {
+            console.log(checkNumber.test(quantity));
+            if (checkNumber.test(quantity)) {
                 break;
             }
             console.log("Wrong type of quantity. Please try again");
