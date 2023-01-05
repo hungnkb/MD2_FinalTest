@@ -41,7 +41,7 @@ export class SupplyManager {
         while (true) {
             price = readlineSync.question("Price: ");
             if (checkNumber.test(price)) {
-                break
+                break;
             }
             console.log("Wrong type of price. Please try again");
         }
@@ -54,8 +54,8 @@ export class SupplyManager {
             }
             console.log("Wrong type of quantity. Please try again");
         }
-        let description: string = readlineSync.question("Description: ");
-        let addDay: string = new Date().toString();
+        let description = readlineSync.question("Description: ");
+        let addDay = new Date().toString();
         let item = new Supply(id, name, type, price, quantity, addDay, description);
         this.supplyList.push(item);
     }
