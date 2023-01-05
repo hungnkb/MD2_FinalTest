@@ -52,7 +52,7 @@ export class SupplyManager {
             if (numbertest.test(quantity)) {
                 break
             }
-            console.log("Quantity must be a number")
+            console.log("Quantity must be a number. Please try again")
         }
         let description: string = readlineSync.question("Description: ")
         let addDay: string = new Date().toString()
