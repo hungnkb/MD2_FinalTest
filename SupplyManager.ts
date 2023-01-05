@@ -18,7 +18,7 @@ export class SupplyManager {
                     return i
                 }
             }
-            console.log("Name is not available, please try again");
+            console.log("This name is not available, please try again");
         }
     }
     findByName() {
@@ -36,14 +36,14 @@ export class SupplyManager {
             console.log("ID must be a number");
         }
         let name = readlineSync.question("Name: ");
-        let type = readlineSync.question("Sector : ");
+        let type = readlineSync.question("Sector: ");
         let price;
         while (true) {
             price = readlineSync.question("Price: ");
             if (numbertest.test(price)) {
                 break
             }
-            console.log("Wrong type of Price. Please try again");
+            console.log("Wrong type of price. Please try again");
         }
         let quantity;
         while (true) {
@@ -52,7 +52,7 @@ export class SupplyManager {
             if (numbertest.test(quantity)) {
                 break;
             }
-            console.log("Quantity must be a number. Please try again");
+            console.log("Wrong type of quantity. Please try again");
         }
         let description: string = readlineSync.question("Description: ");
         let addDay: string = new Date().toString();
@@ -64,10 +64,10 @@ export class SupplyManager {
             let id = readlineSync.question("Id: ")
             for (let i = 0; i < this.supplyList.length; i++) {
                 if (this.supplyList[i].id == id) {
-                    return i
+                    return i;
                 }
             }
-            console.log("ID is not exist, please try again")
+            console.log("This ID is not exist. Please try again")
         }
     }
     editItem(): void {
