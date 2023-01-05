@@ -26,7 +26,7 @@ export class SupplyManager {
         console.table(this.supplyList[index]);
     }
     addItem(): void {
-        let checkNumber = /^\d*$/g
+        let checkNumber = /^*\d$/g;
         let id;
         while (true) {
             id = readlineSync.question("Id: ");
