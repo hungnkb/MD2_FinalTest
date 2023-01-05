@@ -28,12 +28,11 @@ export class MainMenu {
                     let inputName = readlineSync.question('Name: ');
                     let check = supplyManager.findByName(inputName);
                     if (check != -1) {
-                        console.log(check)
+                        console.log(check);
                     } else {
                         console.log('[!!!] This Name is not available')
                     }
-
-                        break;
+                    break;
                 case 3:
                     let isLoop3 = true;
                     while (isLoop3) {
@@ -48,21 +47,24 @@ export class MainMenu {
                             do {
                                 inputSector = readlineSync.question('Sector: ');
                                 if (inputSector.match(checkSector) == null) {
-                                    console.log('[!!!] Sector is one of A, B, C, D or E')
-                                }
-                            } while (inputSector.match(checkSector) != null)
+                                    console.log('[!!!] Sector is one of A, B, C, D or E');
+                                } 
+                            } while (inputSector.match(checkSector) != null);
                             let inputPrice = +readlineSync.question('Price: ');
                             let inputQuantity = +readlineSync.question('Quantity: ');
                             let inputDescription = readlineSync.question('Description: ');
                             let InputInnitiatedDate = `${new Date().getDate()}/${new Date().getMonth}/${new Date().getFullYear}`;
                             let newItem = new Supply(inputID, inputName, inputSector, inputPrice, inputQuantity, InputInnitiatedDate, inputDescription);
-                            supplyManager.supplyList.push(newItem)
+                            supplyManager.supplyList.push(newItem);
+                            console.log('[v] Add item successful')
+                            break;
 
                         } else {
                             console.log('[!!!] This ID unavailable. Please try again');
                             continue;
                         }
                     }
+                    break;
                 case 4:
                     let isLoop4 = true
                     while (isLoop4) {
@@ -79,8 +81,10 @@ export class MainMenu {
                             let inputQuantity = +readlineSync.question('Quantity: ');
                             let InputInnitiatedDate = `${new Date().getDate()}/${new Date().getMonth}/${new Date().getFullYear}`
                             let inputDescription = readlineSync.question('Description: ')
-                            let newItem = new Supply(inputId, inputName, inputSector, inputPrice, inputQuantity, InputInnitiatedDate, inputDescription);
-                            supplyManager.editItem(inputId, newItem)
+                            let updateItem = new Supply(inputId, inputName, inputSector, inputPrice, inputQuantity, InputInnitiatedDate, inputDescription);
+                            supplyManager.editItem(inputId, updateItem)
+                            console.log('[v] Edit item successful')
+                            return this.mainMenu;
                         }
                         break;
                     }
@@ -97,8 +101,6 @@ export class MainMenu {
                             supplyManager.removeItem(inputId);
                             console.log('Remove successful');
                             return this.mainMenu;
-
-
                         }
                     }
                     break;
