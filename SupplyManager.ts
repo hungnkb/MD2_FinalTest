@@ -11,9 +11,9 @@ export class ItemManager {
     findbyName() {
         while (true) {
             let name = readlineSync.question("name: ")
-            let re = new RegExp(name, "g")
+            let check = new RegExp(name, "g")
             for (let i = 0; i < this.supplyList.length; i++) {
-                if (re.test(this.supplyList[i].name) === true) {
+                if (check.test(this.supplyList[i].name) == true) {
                     return i
                 }
             }
