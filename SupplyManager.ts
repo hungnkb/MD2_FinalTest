@@ -3,8 +3,8 @@ import { Item } from "./Supply";
 
 export class SupplyManager {
     supplyList: Item[]
-    constructor(itemList: Item[]) {
-        this.supplyList = itemList
+    constructor(supplyList: Item[]) {
+        this.supplyList = supplyList
     }
     displayItem(): void {
         console.table(this.supplyList)
