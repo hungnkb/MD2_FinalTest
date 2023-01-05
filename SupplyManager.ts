@@ -68,7 +68,7 @@ export class SupplyManager {
                     return i
                 }
             }
-            console.log("ID is not existed, please try again")
+            console.log("ID is not exist, please try again")
         }
     }
     editItem(): void {
