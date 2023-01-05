@@ -16,7 +16,7 @@ export class MainMenu {
     mainMenu() {
         let supplyManager = new SupplyManager();
         let isLoop = true;
-        
+
         while (isLoop) {
             console.log(this.menu);
             let choice = +readlineSync.question('Pick your choice: ');
@@ -26,13 +26,14 @@ export class MainMenu {
                     break;
                 case 2:
                     let inputName = readlineSync.question('Name: ');
-                    for (let i in supplyManager.supplyList) {
-                        if (inputName == supplyManager.supplyList[i].name) {
-                            console.log(supplyManager.supplyList[i]);
-                            this.mainMenu();
-                        }
+                    let check = supplyManager.findByName(inputName);
+                    if (check != -1) {
+                        console.log(check)
+                    } else {
+                        console.log('[!!!] This Name is not available')
                     }
-                    break;
+
+                        break;
                 case 3:
                     let isLoop3 = true;
                     while (isLoop3) {
