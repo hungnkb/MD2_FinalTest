@@ -33,7 +33,7 @@ export class SupplyManager {
             if (numbertest.test(id)) {
                 break;
             }
-            console.log("ID must be a number");
+            console.log("Wrong type of ID. Please try again");
         }
         let name = readlineSync.question("Name: ");
         let type = readlineSync.question("Sector: ");
@@ -47,7 +47,7 @@ export class SupplyManager {
         }
         let quantity;
         while (true) {
-            let quantity = readlineSync.question("Quantity: ")
+            let quantity = readlineSync.question("Quantity: ");
             console.log(numbertest.test(quantity));
             if (numbertest.test(quantity)) {
                 break;
