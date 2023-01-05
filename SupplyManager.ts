@@ -27,7 +27,7 @@ export class SupplyManager {
     }
     addItem(): void {
         let checkNumber = /^\d*$/g
-        let id: number;
+        let id;
         while (true) {
             id = readlineSync.question("Id: ");
             if (checkNumber.test(id)) {
