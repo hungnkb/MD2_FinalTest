@@ -45,12 +45,12 @@ export class SupplyManager {
             }
             console.log("Wrong type of Price. Please try again")
         }
-        let quantity
+        let quantity;
         while (true) {
-            quantity = readlineSync.question("Quantity: ")
+            let quantity = readlineSync.question("Quantity: ")
             console.log(numbertest.test(quantity))
             if (numbertest.test(quantity)) {
-                break
+                break;
             }
             console.log("Quantity must be a number. Please try again")
         }
