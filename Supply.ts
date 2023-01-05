@@ -1,4 +1,4 @@
-export class Item {
+export class Supply {
     id: number
     name: string
     sector: string

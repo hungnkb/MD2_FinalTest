@@ -1,9 +1,9 @@
 var readlineSync = require('readline-sync');
-import { Item } from "./Supply";
+import { Supply } from "./Supply";
 
 export class SupplyManager {
-    supplyList: Item[]
-    constructor(supplyList: Item[]) {
+    supplyList: Supply[]
+    constructor(supplyList: Supply[]) {
         this.supplyList = supplyList
     }
     displayItem(): void {
@@ -56,7 +56,7 @@ export class SupplyManager {
         }
         let description: string = readlineSync.question("Description: ")
         let addDay: string = new Date().toString()
-        let item = new Item(id, name, type, price, quantity, addDay, description)
+        let item = new Supply(id, name, type, price, quantity, addDay, description)
         this.supplyList.push(item)
     }
     findbyID(): number {
