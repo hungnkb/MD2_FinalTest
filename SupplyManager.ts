@@ -79,7 +79,7 @@ export class SupplyManager {
         this.supplyList[index].description = readlineSync.question("Description: ")
     }
     deleteItem() {
-        let index: number = this.findbyID()
+        let index = this.findbyID()
         this.supplyList.splice(index, 1)
     }
 }
