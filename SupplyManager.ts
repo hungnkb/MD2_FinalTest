@@ -27,7 +27,7 @@ export class SupplyManager {
     }
     addItem(): void {
         let numbertest = /^\d*$/g
-        let id
+        let id;
         while (true) {
             id = readlineSync.question("Id: ")
             if (numbertest.test(id)) {
@@ -37,17 +37,16 @@ export class SupplyManager {
         }
         let name = readlineSync.question("Name: ")
         let type = readlineSync.question("Sector : ")
-        let price;
+       
         while (true) {
-            price = readlineSync.question("Price: ")
+            let price = readlineSync.question("Price: ")
             if (numbertest.test(price)) {
                 break
             }
             console.log("Wrong type of Price. Please try again")
         }
-        let quantity
         while (true) {
-            quantity = readlineSync.question("Quantity: ")
+            let quantity = readlineSync.question("Quantity: ")
             console.log(numbertest.test(quantity))
             if (numbertest.test(quantity)) {
                 break
@@ -59,10 +58,9 @@ export class SupplyManager {
         let item = new Supply(id, name, type, price, quantity, addDay, description)
         this.supplyList.push(item)
     }
-    findbyID(): number {
-        let id: number
+    findbyID(): number {   
         while (true) {
-            id = readlineSync.question("Id: ")
+            let id = readlineSync.question("Id: ")
             for (let i = 0; i < this.supplyList.length; i++) {
                 if (this.supplyList[i].id == id) {
                     return i
