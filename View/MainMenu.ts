@@ -86,7 +86,6 @@ export class MainMenu {
                             console.log('[v] Edit item successful')
                             return this.mainMenu;
                         }
-                        break;
                     }
                 case 5:
                     let isLoop5 = true;
