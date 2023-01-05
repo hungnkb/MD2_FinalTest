@@ -15,7 +15,7 @@ export class SupplyManager {
             let check = new RegExp(name, "g");
             for (let i = 0; i < this.supplyList.length; i++) {
                 if (check.test(this.supplyList[i].name) == true) {
-                    return i
+                    return i;
                 }
             }
             console.log("This name is not available, please try again");
@@ -72,14 +72,14 @@ export class SupplyManager {
     }
     editItem(): void {
         let index = this.findbyID()
-        this.supplyList[index].name = readlineSync.question("Name: ")
-        this.supplyList[index].sector = readlineSync.question("Sector: ")
-        this.supplyList[index].price = readlineSync.question("Price: ")
-        this.supplyList[index].quantity = readlineSync.question("Quantity: ")
-        this.supplyList[index].description = readlineSync.question("Description: ")
+        this.supplyList[index].name = readlineSync.question("Name: ");
+        this.supplyList[index].sector = readlineSync.question("Sector: ");
+        this.supplyList[index].price = readlineSync.question("Price: ");
+        this.supplyList[index].quantity = readlineSync.question("Quantity: ");
+        this.supplyList[index].description = readlineSync.question("Description: ");
     }
     deleteItem() {
-        let index = this.findbyID()
-        this.supplyList.splice(index, 1)
+        let index = this.findbyID();
+        this.supplyList.splice(index, 1);
     }
 }
