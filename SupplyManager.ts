@@ -37,16 +37,17 @@ export class SupplyManager {
         }
         let name = readlineSync.question("Name: ")
         let type = readlineSync.question("Sector : ")
-       
+        let price;
         while (true) {
-            let price = readlineSync.question("Price: ")
+            price = readlineSync.question("Price: ")
             if (numbertest.test(price)) {
                 break
             }
             console.log("Wrong type of Price. Please try again")
         }
+        let quantity
         while (true) {
-            let quantity = readlineSync.question("Quantity: ")
+            quantity = readlineSync.question("Quantity: ")
             console.log(numbertest.test(quantity))
             if (numbertest.test(quantity)) {
                 break
