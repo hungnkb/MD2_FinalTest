@@ -1,6 +1,7 @@
 var readlineSync = require('readline-sync');
 import { Item } from "./Supply";
-export class ItemManager {
+
+export class SupplyManager {
     supplyList: Item[]
     constructor(itemList: Item[]) {
         this.supplyList = itemList
