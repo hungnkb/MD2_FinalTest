@@ -2,9 +2,9 @@ var readlineSync = require('readline-sync');
 import { Supply } from "./Supply";
 
 export class SupplyManager {
-    supplyList: Supply[]
+    supplyList: Supply[];
     constructor(supplyList: Supply[]) {
-        this.supplyList = supplyList
+        this.supplyList = supplyList;
     }
     displayItem(): void {
         console.table(this.supplyList)
