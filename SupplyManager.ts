@@ -28,32 +28,32 @@ export class ItemManager {
         let numbertest = /^\d*$/g
         let id
         while (true) {
-            id = readlineSync.question("Enter id of item you want to add?: ")
+            id = readlineSync.question("Id: ")
             if (numbertest.test(id)) {
                 break
             }
             console.log("ID must be a number")
         }
-        let name: string = readlineSync.question("Enter name of item you want to add?: ")
-        let type: string = readlineSync.question("Enter type of item you want to add?: ")
-        let price
+        let name = readlineSync.question("Name: ")
+        let type = readlineSync.question("Sector : ")
+        let price;
         while (true) {
-            price = readlineSync.question("Enter price of item you want to add?: ")
+            price = readlineSync.question("Price: ")
             if (numbertest.test(price)) {
                 break
             }
-            console.log("Price must be a number")
+            console.log("Wrong type of Price. Please try again")
         }
         let quantity
         while (true) {
-            quantity = readlineSync.question("Enter quantity of item you want to add?: ")
+            quantity = readlineSync.question("Quantity: ")
             console.log(numbertest.test(quantity))
             if (numbertest.test(quantity)) {
                 break
             }
             console.log("Quantity must be a number")
         }
-        let description: string = readlineSync.question("Enter description of item you want to add?: ")
+        let description: string = readlineSync.question("Description: ")
         let addDay: string = new Date().toString()
         let item = new Item(id, name, type, price, quantity, addDay, description)
         this.supplyList.push(item)
@@ -61,7 +61,7 @@ export class ItemManager {
     findbyID(): number {
         let id: number
         while (true) {
-            id = readlineSync.question("Enter id of item you want to edit: ")
+            id = readlineSync.question("Id: ")
             for (let i = 0; i < this.supplyList.length; i++) {
                 if (this.supplyList[i].id == id) {
                     return i
@@ -72,11 +72,11 @@ export class ItemManager {
     }
     editItem(): void {
         let index: number = this.findbyID()
-        this.supplyList[index].name = readlineSync.question("Enter name: ")
-        this.supplyList[index].type = readlineSync.question("Enter type: ")
-        this.supplyList[index].price = readlineSync.question("Enter price: ")
-        this.supplyList[index].quantity = readlineSync.question("Enter quantity: ")
-        this.supplyList[index].description = readlineSync.question("Enter description: ")
+        this.supplyList[index].name = readlineSync.question("Name: ")
+        this.supplyList[index].sector = readlineSync.question("Sector: ")
+        this.supplyList[index].price = readlineSync.question("Price: ")
+        this.supplyList[index].quantity = readlineSync.question("Quantity: ")
+        this.supplyList[index].description = readlineSync.question("Description: ")
     }
     deleteItem() {
         let index: number = this.findbyID()
